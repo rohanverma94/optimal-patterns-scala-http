@@ -2,7 +2,7 @@ val projectVersion = "0.1.0"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "scala-http-benchmark",
+    name := "optimal-patterns-scala-http",
     organization := "com.optimalpatterns",
     version := projectVersion,
     scalaVersion := "2.13.9"
