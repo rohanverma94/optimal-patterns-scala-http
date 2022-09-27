@@ -1,4 +1,4 @@
-package com.github.gcnyin.httpbenchmark.vertxweb
+package com.optimalpatterns.ziotapir.httpbenchmark.vertxweb
 
 import io.vertx.core.Vertx
 import io.vertx.core.http.HttpMethod

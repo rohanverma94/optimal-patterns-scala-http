@@ -1,4 +1,4 @@
-package com.github.gcnyin.httpbenchmark.finch
+package com.optimalpatterns.ziotapir.httpbenchmark.finch
 
 import cats.effect.{ExitCode, IO, IOApp}
 import io.finch._

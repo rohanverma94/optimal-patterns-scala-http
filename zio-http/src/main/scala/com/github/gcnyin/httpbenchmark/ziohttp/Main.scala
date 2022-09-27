@@ -1,4 +1,4 @@
-package com.github.gcnyin.httpbenchmark.ziohttp
+package com.optimalpatterns.ziotapir.httpbenchmark.ziohttp
 
 import zhttp.http._
 import zhttp.service.server.ServerChannelFactory

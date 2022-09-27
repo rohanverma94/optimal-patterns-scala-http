@@ -1,4 +1,4 @@
-package com.github.gcnyin.httpbenchmark.http4s
+package com.optimalpatterns.ziotapir.httpbenchmark.http4s
 
 import cats.effect._
 import cats.syntax.all._

@@ -1,4 +1,4 @@
-package com.github.gcnyin.httpbenchmark.ziohttp4s
+package com.optimalpatterns.ziotapir.httpbenchmark.ziohttp4s
 
 import org.http4s.HttpRoutes
 import org.http4s.dsl.Http4sDsl

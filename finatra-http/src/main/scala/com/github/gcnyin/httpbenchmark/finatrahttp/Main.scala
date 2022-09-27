@@ -1,4 +1,4 @@
-package com.github.gcnyin.httpbenchmark.finatrahttp
+package com.optimalpatterns.ziotapir.httpbenchmark.finatrahttp
 
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.{Controller, HttpServer}

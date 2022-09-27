@@ -3,7 +3,7 @@ val projectVersion = "0.1.0"
 lazy val root = (project in file("."))
   .settings(
     name := "scala-http-benchmark",
-    organization := "com.github.gcnyin",
+    organization := "com.optimalpatterns",
     version := projectVersion,
     scalaVersion := "2.13.9"
   )
@@ -16,7 +16,8 @@ lazy val root = (project in file("."))
     `finatra-http`,
     `http4s-js`,
     `http4s-native`,
-    `vertx-web`
+    `vertx-web`,
+    `zio-tapir`
   )
 
 val LogbackVersion = "1.4.1"
@@ -27,7 +28,7 @@ lazy val `akka-http` = (project in file("akka-http"))
   .enablePlugins(JavaServerAppPackaging)
   .settings(
     name := "akka-http",
-    organization := "com.github.gcnyin",
+    organization := "com.optimalpatterns",
     version := projectVersion,
     scalaVersion := "2.13.9",
     libraryDependencies ++= Seq(
@@ -49,7 +50,7 @@ lazy val `http4s` = (project in file("http4s"))
   .enablePlugins(JavaServerAppPackaging)
   .settings(
     name := "http4s",
-    organization := "com.github.gcnyin",
+    organization := "com.optimalpatterns",
     version := projectVersion,
     scalaVersion := "2.13.9",
     libraryDependencies ++= Seq(
@@ -67,7 +68,7 @@ lazy val `zio-http` = (project in file("zio-http"))
   .enablePlugins(JavaServerAppPackaging)
   .settings(
     name := "zio-http",
-    organization := "com.github.gcnyin",
+    organization := "com.optimalpatterns",
     version := projectVersion,
     scalaVersion := "2.13.9",
     libraryDependencies ++= Seq(
@@ -83,7 +84,7 @@ lazy val `http4s-zio2` = (project in file("http4s-zio2"))
   .enablePlugins(JavaServerAppPackaging)
   .settings(
     name := "http4s-zio2",
-    organization := "com.github.gcnyin",
+    organization := "com.optimalpatterns",
     version := projectVersion,
     scalaVersion := "2.13.9",
     libraryDependencies ++= Seq(
@@ -104,7 +105,7 @@ lazy val `finch` = (project in file("finch"))
   .enablePlugins(JavaServerAppPackaging)
   .settings(
     name := "finch",
-    organization := "com.github.gcnyin",
+    organization := "com.optimalpatterns",
     version := projectVersion,
     scalaVersion := "2.13.9",
     libraryDependencies ++= Seq(
@@ -121,7 +122,7 @@ lazy val `finatra-http` = (project in file("finatra-http"))
   .enablePlugins(JavaServerAppPackaging)
   .settings(
     name := "finatra-http",
-    organization := "com.github.gcnyin",
+    organization := "com.optimalpatterns",
     version := projectVersion,
     scalaVersion := "2.13.9",
     libraryDependencies ++= Seq(
@@ -138,7 +139,7 @@ lazy val `http4s-js` = (project in file("http4s-js"))
   .enablePlugins(ScalaJSPlugin)
   .settings(
     name := "http4s-js",
-    organization := "com.github.gcnyin",
+    organization := "com.optimalpatterns",
     version := projectVersion,
     scalaVersion := "2.13.9",
     scalaJSUseMainModuleInitializer := true,
@@ -158,7 +159,7 @@ lazy val `http4s-native` = (project in file("http4s-native"))
   .enablePlugins(ScalaNativePlugin)
   .settings(
     name := "http4s-native",
-    organization := "com.github.gcnyin",
+    organization := "com.optimalpatterns",
     version := projectVersion,
     scalaVersion := "2.13.9",
     libraryDependencies ++= Seq(
@@ -172,7 +173,7 @@ lazy val `vertx-web` = (project in file("vertx-web"))
   .enablePlugins(JavaServerAppPackaging)
   .settings(
     name := "vertx-web",
-    organization := "com.github.gcnyin",
+    organization := "com.optimalpatterns",
     version := projectVersion,
     scalaVersion := "2.13.9",
     libraryDependencies ++= Seq(
@@ -184,3 +185,24 @@ lazy val `vertx-web` = (project in file("vertx-web"))
     dockerBaseImage := "eclipse-temurin:11.0.16_8-jre-focal",
     dockerExposedPorts ++= Seq(8080)
   )
+
+val tapirVersion = "1.1.1"
+
+lazy val `zio-tapir` = (project in file("zio-tapir")).settings(
+  Seq(
+    name := "zio-tapir",
+    version := "0.1.0-SNAPSHOT",
+    organization := "com.optimalpatterns",
+    scalaVersion := "2.13.9",
+    libraryDependencies ++= Seq(
+      "com.softwaremill.sttp.tapir" %% "tapir-zio-http-server" % tapirVersion,
+      "com.softwaremill.sttp.tapir" %% "tapir-json-zio" % tapirVersion,
+      "ch.qos.logback" % "logback-classic" % "1.4.1",
+      "com.softwaremill.sttp.tapir" %% "tapir-sttp-stub-server" % tapirVersion % Test,
+      "dev.zio" %% "zio-test" % "2.0.0" % Test,
+      "dev.zio" %% "zio-test-sbt" % "2.0.0" % Test,
+      "com.softwaremill.sttp.client3" %% "zio-json" % "3.8.0" % Test
+    ),
+    testFrameworks := Seq(new TestFramework("zio.test.sbt.ZTestFramework"))
+  )
+)

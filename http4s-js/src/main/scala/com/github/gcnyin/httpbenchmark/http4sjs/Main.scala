@@ -1,4 +1,4 @@
-package com.github.gcnyin.httpbenchmark.http4sjs
+package com.optimalpatterns.ziotapir.httpbenchmark.http4sjs
 
 import cats.effect._
 import com.comcast.ip4s._

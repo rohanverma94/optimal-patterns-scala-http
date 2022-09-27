@@ -1,4 +1,4 @@
-package com.github.gcnyin.httpbenchmark.http4snative
+package com.optimalpatterns.ziotapir.httpbenchmark.http4snative
 
 import cats.effect._
 import com.comcast.ip4s._
