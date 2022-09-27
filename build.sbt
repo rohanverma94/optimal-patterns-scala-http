@@ -14,8 +14,6 @@ lazy val root = (project in file("."))
     `http4s-zio2`,
     `finch`,
     `finatra-http`,
-    `http4s-js`,
-    `http4s-native`,
     `vertx-web`,
     `zio-tapir`
   )
@@ -133,40 +131,6 @@ lazy val `finatra-http` = (project in file("finatra-http"))
     Docker / version := projectVersion,
     dockerBaseImage := "eclipse-temurin:11.0.16_8-jre-focal",
     dockerExposedPorts ++= Seq(8080)
-  )
-
-lazy val `http4s-js` = (project in file("http4s-js"))
-  .enablePlugins(ScalaJSPlugin)
-  .settings(
-    name := "http4s-js",
-    organization := "com.optimalpatterns",
-    version := projectVersion,
-    scalaVersion := "2.13.9",
-    scalaJSUseMainModuleInitializer := true,
-    libraryDependencies ++= Seq(
-      "org.http4s" %%% "http4s-ember-server" % Http4sVersion,
-      "org.http4s" %%% "http4s-dsl" % Http4sVersion
-    ),
-    scalaJSLinkerConfig ~= {
-      _.withModuleKind(ModuleKind.ESModule)
-    },
-    scalaJSLinkerConfig ~= {
-      _.withModuleKind(ModuleKind.CommonJSModule)
-    }
-  )
-
-lazy val `http4s-native` = (project in file("http4s-native"))
-  .enablePlugins(ScalaNativePlugin)
-  .settings(
-    name := "http4s-native",
-    organization := "com.optimalpatterns",
-    version := projectVersion,
-    scalaVersion := "2.13.9",
-    libraryDependencies ++= Seq(
-      "org.http4s" %%% "http4s-ember-server" % Http4sVersion,
-      "org.http4s" %%% "http4s-dsl" % Http4sVersion,
-      "com.armanbilge" %%% "epollcat" % "0.1.1"
-    )
   )
 
 lazy val `vertx-web` = (project in file("vertx-web"))
