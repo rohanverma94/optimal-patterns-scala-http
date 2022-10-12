@@ -5,7 +5,7 @@ lazy val root = (project in file("."))
     name := "optimal-patterns-scala-http",
     organization := "com.optimalpatterns",
     version := projectVersion,
-    scalaVersion := "2.13.9"
+    scalaVersion := "2.13.10"
   )
   .aggregate(
     `akka-http`,
